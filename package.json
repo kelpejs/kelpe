@@ -1,0 +1,10 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {},
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "printWidth": 80
+  }
+}
