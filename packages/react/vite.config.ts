@@ -16,5 +16,8 @@ export default defineConfig({
       output: { globals: { react: 'React', 'react-dom': 'ReactDOM' } },
     },
   },
-  define: { 'process.env.NODE_ENV': '"production"' },
+  define: {
+    'process.env.NODE_ENV': '"production"',
+    'process': '{}',
+  },
 })
