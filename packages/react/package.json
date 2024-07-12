@@ -7,15 +7,18 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
+      "require": "./dist/index.cjs",
+      "styles": "./dist/style.css"
+    },
+    "./css": "./dist/style.css"
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "vite build",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "dev": "vite build --watch"
   },
   "devDependencies": {
     "@types/prismjs": "^1.26.4",
@@ -29,6 +32,11 @@
   "dependencies": {
     "oas": "^24.5.2",
     "prismjs": "^1.29.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite-plugin-css-injected-by-js": "^3.5.1"
+  },
+  "peerDependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }

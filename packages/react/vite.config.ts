@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
+import css from 'vite-plugin-css-injected-by-js'
 
 export default defineConfig({
-  plugins: [react(), dts({ insertTypesEntry: true, rollupTypes: true })],
+  plugins: [react(), css(), dts({ insertTypesEntry: true, rollupTypes: true })],
   build: {
     lib: {
       entry: './src/index.tsx',
@@ -18,6 +19,6 @@ export default defineConfig({
   },
   define: {
     'process.env.NODE_ENV': '"production"',
-    'process': '{}',
+    process: '{}',
   },
 })

@@ -8,7 +8,7 @@ importers:
 
   .: {}
 
-  examples/react:
+  examples/react-vite:
     dependencies:
       react:
         specifier: ^18.3.1
@@ -50,6 +50,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      vite-plugin-css-injected-by-js:
+        specifier: ^3.5.1
+        version: 3.5.1(vite@5.3.3)
     devDependencies:
       '@types/prismjs':
         specifier: ^1.26.4
@@ -1208,6 +1211,11 @@ packages:
   validator@13.12.0:
     resolution: {integrity: sha512-c1Q0mCiPlgdTVVVIJIrBuxNicYE+t/7oKeI9MWLj3fh/uq2Pxh/3eeWbVZ4OcGW1TUf53At0njHw5SMdA3tmMg==}
     engines: {node: '>= 0.10'}
+
+  vite-plugin-css-injected-by-js@3.5.1:
+    resolution: {integrity: sha512-9ioqwDuEBxW55gNoWFEDhfLTrVKXEEZgl5adhWmmqa88EQGKfTmexy4v1Rh0pAS6RhKQs2bUYQArprB32JpUZQ==}
+    peerDependencies:
+      vite: '>2.0.0-0'
 
   vite-plugin-dts@3.9.1:
     resolution: {integrity: sha512-rVp2KM9Ue22NGWB8dNtWEr+KekN3rIgz1tWD050QnRGlriUCmaDwa7qA5zDEjbXg5lAXhYMSBJtx3q3hQIJZSg==}
@@ -2446,6 +2454,10 @@ snapshots:
   validate.io-number@1.0.3: {}
 
   validator@13.12.0: {}
+
+  vite-plugin-css-injected-by-js@3.5.1(vite@5.3.3):
+    dependencies:
+      vite: 5.3.3
 
   vite-plugin-dts@3.9.1(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3):
     dependencies:
