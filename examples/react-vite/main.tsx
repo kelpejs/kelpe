@@ -5,7 +5,7 @@ import { Kelpe } from 'vibrant-stoic-paradox'
 const App = () => {
   return (
     <div>
-      <h1>Kelpe</h1>
+      <h1>App</h1>
       <Kelpe url="https://raw.githubusercontent.com/getsentry/sentry-api-schema/main/openapi-derefed.json" />
     </div>
   )

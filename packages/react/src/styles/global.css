@@ -1,3 +1,13 @@
-h1 {
-  color: red !important;
+/* @layer base {
+  :root {}
+  } */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#kelpe {
+  h1 {
+    @apply text-red-900 font-mono;
+  }
 }
