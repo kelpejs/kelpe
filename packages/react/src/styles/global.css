@@ -1,12 +1,8 @@
-/* @layer base {
-  :root {}
-  } */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-#kelpe {
+.kelpe {
   h1 {
     @apply text-red-900 font-mono;
   }

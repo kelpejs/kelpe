@@ -1,3 +1,5 @@
+import './styles/global.css'
+
 import Oas from 'oas'
 import { useQuery } from './hooks/use-query'
 
@@ -14,7 +16,7 @@ export const Kelpe = (props: KelpeProps) => {
   })
 
   return (
-    <div id="kelpe">
+    <div className="kelpe">
       <h1>{spec?.data?.api?.info?.title || 'N/a'}</h1>
     </div>
   )
