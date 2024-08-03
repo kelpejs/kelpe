@@ -1,7 +1,8 @@
 import './styles/global.css'
 
-import Oas from 'oas'
-import { useQuery } from './hooks/use-query'
+import { Navigation } from './components/navigation'
+import { Providers } from './components/providers'
+import { OperationList } from './components/operation-list'
 
 interface KelpeProps {
   url: string
@@ -10,14 +11,14 @@ interface KelpeProps {
 export const Kelpe = (props: KelpeProps) => {
   const { url } = props
 
-  const spec = useQuery('oas', async () => {
-    const result = await fetch(url).then((res) => res.json())
-    return Oas.init(result)
-  })
-
   return (
     <div className="kelpe">
-      <h1>{spec?.data?.api?.info?.title || 'N/a'}</h1>
+      <Providers>
+        <div className="flex flex-row">
+          <Navigation url={url} />
+          <OperationList url={url} />
+        </div>
+      </Providers>
     </div>
   )
 }

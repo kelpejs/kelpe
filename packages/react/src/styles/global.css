@@ -2,8 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --kelpe-color-1: #b6b6b6;
+  --kelpe-color-2: #d9d9d9;
+  --kelpe-color-3: #afafaf;
+  --kelpe-font: monospace;
+  --kelpe-font-size: 1.5rem;
+  --kelpe-font-weight: 900;
+}
+
 .kelpe {
   h1 {
-    @apply text-red-900 font-mono;
+    color: var(--kelpe-color-1);
+    font-family: var(--kelpe-font);
   }
 }

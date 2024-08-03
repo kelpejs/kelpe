@@ -35,6 +35,7 @@
     "vite-plugin-dts": "^3.9.1"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.51.21",
     "oas": "^24.5.2",
     "prismjs": "^1.29.0",
     "react": "^18.3.1",
