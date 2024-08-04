@@ -1,4 +1,5 @@
 import Oas from 'oas'
+import { pick } from './object'
 
 export class OpenAPI {
   private oas: Oas
@@ -15,11 +16,9 @@ export class OpenAPI {
       .flat()
 
     return ops.map((op) => ({
-      ...op,
-      api: undefined, // Too much data, not needed
-      path: op.path,
-      method: op.method,
-      schema: op.schema,
+      // Base
+      ...pick(op, ['path', 'method', 'schema']),
+      // Extended
       id: op.getOperationId(),
     }))
   }
