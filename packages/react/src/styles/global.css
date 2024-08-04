@@ -12,6 +12,8 @@
 }
 
 .kelpe {
+  font-family: var(--kelpe-font);
+
   h1 {
     color: var(--kelpe-color-1);
     font-family: var(--kelpe-font);

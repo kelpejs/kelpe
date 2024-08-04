@@ -11,7 +11,7 @@ export function Navigation(props: NavigationProps) {
   const operations = spec.data?.operations()
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 sticky top-0">
       {operations?.map((op, index) => {
         return (
           <a href={`#${op.id}`} key={index}>

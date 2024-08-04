@@ -8,10 +8,12 @@ export function OperationList(props: { url: string }) {
     <div>
       {operations?.map((op) => {
         return (
-          <a id={op.id} key={op.id}>
-            <div>{op.id}</div>
-            <div>{op.path}</div>
-          </a>
+          <div id={op.id} key={op.id} className="min-h-[100px] px-4">
+            <div>
+              {op.method.toLocaleUpperCase()} {op.path}
+            </div>
+            <div className="font-sans text-xl font-semibold mt-2">{op.id}</div>
+          </div>
         )
       })}
     </div>
