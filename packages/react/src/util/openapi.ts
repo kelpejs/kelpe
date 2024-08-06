@@ -1,6 +1,8 @@
 import Oas from 'oas'
 import { pick } from './object'
 
+export type Operation = ReturnType<OpenAPI['operations']>[number]
+
 export class OpenAPI {
   private oas: Oas
 

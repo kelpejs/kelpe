@@ -1,4 +1,5 @@
 import { useSpecQuery } from '../util/queries'
+import { Operation } from './operation'
 
 export function OperationList(props: { url: string }) {
   const spec = useSpecQuery(props.url)
@@ -6,16 +7,9 @@ export function OperationList(props: { url: string }) {
 
   return (
     <div>
-      {operations?.map((op) => {
-        return (
-          <div id={op.id} key={op.id} className="min-h-[100px] px-4">
-            <div>
-              {op.method.toLocaleUpperCase()} {op.path}
-            </div>
-            <div className="font-sans text-xl font-semibold mt-2">{op.id}</div>
-          </div>
-        )
-      })}
+      {operations?.map((op) => (
+        <Operation operation={op} key={op.id} />
+      ))}
     </div>
   )
 }
