@@ -6,7 +6,7 @@
   --kelpe-color-1: #141414;
   --kelpe-color-2: #d9d9d9;
   --kelpe-color-3: #afafaf;
-  --kelpe-font: monospace;
+  --kelpe-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   --kelpe-font-size: 1.5rem;
   --kelpe-font-weight: 900;
 }

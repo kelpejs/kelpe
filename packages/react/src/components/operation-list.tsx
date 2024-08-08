@@ -8,7 +8,10 @@ export function OperationList(props: { url: string }) {
   return (
     <div>
       {operations?.map((op) => (
-        <Operation operation={op} key={op.id} />
+        <div key={op.id}>
+          <Operation operation={op} key={op.id} />
+          <hr className="my-4" />
+        </div>
       ))}
     </div>
   )

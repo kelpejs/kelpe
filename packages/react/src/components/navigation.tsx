@@ -14,7 +14,7 @@ export function Navigation(props: NavigationProps) {
     <div className="flex flex-col gap-2 sticky top-0">
       {operations?.map((op, index) => {
         return (
-          <a href={`#${op.id}`} key={index}>
+          <a href={`#${op.id}`} key={index} className="no-underline">
             {op.id}
           </a>
         )

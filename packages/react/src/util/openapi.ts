@@ -10,6 +10,10 @@ export class OpenAPI {
     this.oas = spec
   }
 
+  info() {
+    return this.oas.api.info
+  }
+
   operations() {
     const paths = this.oas.getPaths()
 

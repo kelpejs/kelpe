@@ -1,5 +1,5 @@
 import type { Operation as OperationType } from '../util/openapi'
-import { markdownToHTML } from '../util/markdown'
+import { Markdown } from './markdown'
 
 interface OperationProps {
   operation: OperationType
@@ -38,12 +38,7 @@ export function Operation(props: OperationProps) {
       </p>
       <p>{operation.id}</p>
 
-      <div
-        className="p-2 bg-zinc-100 rounded-md"
-        dangerouslySetInnerHTML={{
-          __html: markdownToHTML(operation.description),
-        }}
-      />
+      <Markdown content={operation.description} />
 
       {Object.entries(operation.responses).map(([status, response]) => (
         <details key={status}>
