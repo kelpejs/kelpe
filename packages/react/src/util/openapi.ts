@@ -1,5 +1,5 @@
 import Oas from 'oas'
-import { pick } from './object'
+import { pick } from '.'
 
 export type Operation = ReturnType<OpenAPI['operations']>[number]
 
@@ -22,6 +22,14 @@ export class OpenAPI {
       ...pick(op, ['path', 'method', 'schema']),
       // Extended
       id: op.getOperationId(),
+      description: op.getDescription(),
+
+      responses: Object.fromEntries(
+        op
+          .getResponseStatusCodes()
+          // @TODO: Why does `getResponseAsJSONSchema` return an array?
+          .map((status) => [status, op.getResponseAsJSONSchema(status)?.[0]])
+      ),
     }))
   }
 }

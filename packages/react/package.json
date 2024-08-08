@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.51.21",
+    "marked": "^14.0.0",
     "oas": "^24.5.2",
     "prismjs": "^1.29.0",
     "react": "^18.3.1",
