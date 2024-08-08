@@ -1,5 +1,5 @@
-import { markdownToHTML } from '@/util/markdown'
-import type { Operation as OperationType } from '@/util/openapi'
+import type { Operation as OperationType } from '../util/openapi'
+import { markdownToHTML } from '../util/markdown'
 
 interface OperationProps {
   operation: OperationType
