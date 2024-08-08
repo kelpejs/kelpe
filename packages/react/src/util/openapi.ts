@@ -28,6 +28,7 @@ export class OpenAPI {
       id: op.getOperationId(),
       description: op.getDescription(),
 
+      responseStatusCodes: op.getResponseStatusCodes(),
       responses: Object.fromEntries(
         op
           .getResponseStatusCodes()

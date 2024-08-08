@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import * as transform from '../util/transform'
 import type { Operation as OperationType } from '../util/openapi'
 import { Markdown } from './markdown'
 
@@ -28,12 +30,12 @@ function Schema(props: { schema: Record<string, any> }) {
 }
 
 const Left = (props: any) => (
-  <div className="h-full w-full xl:w-[calc(60%)]" {...props} />
+  <div className="h-full w-full xl:w-[calc(60%)] p-4" {...props} />
 )
 
 const Right = (props: any) => (
   <div
-    className="h-fit w-full xl:w-[calc(40%)] flex flex-col sticky top-6 mb-6 bg-zinc-300/40"
+    className="h-fit w-full xl:w-[calc(40%)] flex flex-col sticky top-6 mb-6 bg-zinc-300/40 p-4 rounded-lg"
     {...props}
   />
 )
@@ -41,6 +43,8 @@ const Right = (props: any) => (
 export function Operation(props: OperationProps) {
   const { operation } = props
   const { method, path } = operation
+
+  const [selectedStatus, setSelectedStatus] = useState<string>('200')
 
   return (
     <div
@@ -64,7 +68,18 @@ export function Operation(props: OperationProps) {
       </Left>
 
       <Right>
-        <p>Examples</p>
+        <div className="flex flex-wrap gap-2">
+          {operation.responseStatusCodes.map((status) => (
+            <button key={status} onClick={() => setSelectedStatus(status)}>
+              {status}
+            </button>
+          ))}
+        </div>
+        <pre>
+          {transform.jsonSchemaToJson(
+            operation.responses[selectedStatus]?.schema
+          )}
+        </pre>
       </Right>
     </div>
   )
