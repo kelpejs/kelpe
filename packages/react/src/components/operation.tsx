@@ -27,25 +27,45 @@ function Schema(props: { schema: Record<string, any> }) {
   )
 }
 
+const Left = (props: any) => (
+  <div className="h-full w-full xl:w-[calc(60%)]" {...props} />
+)
+
+const Right = (props: any) => (
+  <div
+    className="h-fit w-full xl:w-[calc(40%)] flex flex-col sticky top-6 mb-6 bg-zinc-300/40"
+    {...props}
+  />
+)
+
 export function Operation(props: OperationProps) {
   const { operation } = props
   const { method, path } = operation
 
   return (
-    <div id={operation.id} className="min-h-[100px] px-4 space-y-3">
-      <p className="text-sm font-semibold">
-        {method} {path}
-      </p>
-      <p>{operation.id}</p>
+    <div
+      id={operation.id}
+      className="min-h-[100px] flex w-full flex-col xl:flex-row relative"
+    >
+      <Left>
+        <p className="text-sm font-semibold">
+          {method} {path}
+        </p>
+        <p>{operation.id}</p>
 
-      <Markdown content={operation.description} />
+        <Markdown content={operation.description} />
 
-      {Object.entries(operation.responses).map(([status, response]) => (
-        <details key={status}>
-          <summary>{status}</summary>
-          <Schema schema={response?.schema} />
-        </details>
-      ))}
+        {Object.entries(operation.responses).map(([status, response]) => (
+          <details key={status}>
+            <summary>{status}</summary>
+            <Schema schema={response?.schema} />
+          </details>
+        ))}
+      </Left>
+
+      <Right>
+        <p>Examples</p>
+      </Right>
     </div>
   )
 }

@@ -8,7 +8,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export function Sidebar(props: { children: React.ReactNode }) {
   return (
-    <aside className="bg-zinc-300 thin-scrollbar overflow-y-auto sticky top-0 h-full hidden border-r sm:block w-64 xl:w-80">
+    <aside className="bg-zinc-300/40 thin-scrollbar overflow-y-auto sticky top-0 h-full hidden border-r sm:block w-64 xl:w-80">
       <nav className="p-4">{props.children}</nav>
     </aside>
   )
