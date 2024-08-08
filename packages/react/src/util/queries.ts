@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 import Oas from 'oas'
 
-import { OpenAPI } from './openapi'
+import { OpenAPI, Operation } from './openapi'
+import { operationToSnippet } from './snippets'
 
 export function useSpecQuery(url: string) {
   return useQuery({
@@ -11,6 +12,17 @@ export function useSpecQuery(url: string) {
       const oas = Oas.init(result)
 
       return new OpenAPI(oas)
+    },
+  })
+}
+
+export function useSnippetQuery(
+  input: Parameters<typeof operationToSnippet>[0]
+) {
+  return useQuery({
+    queryKey: ['snippet', input],
+    queryFn: async () => {
+      return operationToSnippet(input)
     },
   })
 }

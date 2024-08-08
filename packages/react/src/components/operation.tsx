@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import * as transform from '../util/transform'
 import type { Operation as OperationType } from '../util/openapi'
+import { useSnippetQuery } from '../util/queries'
+import * as transform from '../util/transform'
+
 import { Markdown } from './markdown'
 
 interface OperationProps {
@@ -46,6 +48,8 @@ export function Operation(props: OperationProps) {
 
   const [selectedStatus, setSelectedStatus] = useState<string>('200')
 
+  const snippet = useSnippetQuery(operation)
+
   return (
     <div
       id={operation.id}
@@ -68,6 +72,8 @@ export function Operation(props: OperationProps) {
       </Left>
 
       <Right>
+        <pre>{snippet.data?.curl}</pre>
+        <hr />
         <div className="flex flex-wrap gap-2">
           {operation.responseStatusCodes.map((status) => (
             <button key={status} onClick={() => setSelectedStatus(status)}>
@@ -75,6 +81,7 @@ export function Operation(props: OperationProps) {
             </button>
           ))}
         </div>
+
         <pre>
           {transform.jsonSchemaToJson(
             operation.responses[selectedStatus]?.schema
