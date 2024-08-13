@@ -1,10 +1,16 @@
-import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import dts from 'vite-plugin-dts'
+import { defineConfig } from 'vite'
 import css from 'vite-plugin-css-injected-by-js'
+import dts from 'vite-plugin-dts'
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 export default defineConfig({
-  plugins: [react(), css(), dts({ insertTypesEntry: true, rollupTypes: true })],
+  plugins: [
+    react(),
+    css(),
+    dts({ insertTypesEntry: true, rollupTypes: true }),
+    nodePolyfills({}),
+  ],
   build: {
     lib: {
       entry: './src/index.tsx',
@@ -17,8 +23,5 @@ export default defineConfig({
       output: { globals: { react: 'React', 'react-dom': 'ReactDOM' } },
     },
   },
-  define: {
-    'process.env.NODE_ENV': '"production"',
-    process: '{}',
-  },
+  define: {},
 })

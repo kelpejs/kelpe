@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import Oas from 'oas'
 
-import { OpenAPI, Operation } from './openapi'
+import { OpenAPI } from './openapi'
 import { operationToSnippet } from './snippets'
 
 export function useSpecQuery(url: string) {
@@ -10,6 +10,7 @@ export function useSpecQuery(url: string) {
     queryFn: async () => {
       const result = await fetch(url).then((res) => res.json())
       const oas = Oas.init(result)
+      await oas.dereference()
 
       return new OpenAPI(oas)
     },

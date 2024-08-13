@@ -24,12 +24,21 @@ export class OpenAPI {
     return ops.map((op) => ({
       // Base
       ...pick(op, ['path', 'method', 'schema']),
-      // Extended
+
+      // Meta
+      isJson: op.isJson(),
       id: op.getOperationId(),
       description: op.getDescription(),
-
       api: { url: this.oas.url() },
 
+      // Parameters
+      parameters: op.getParameters(),
+
+      // Request body
+      requestBody: op.getRequestBody('application/json'),
+      requestBodyMediaTypes: op.getRequestBodyMediaTypes(),
+
+      // Responses
       responseStatusCodes: op.getResponseStatusCodes(),
       responses: Object.fromEntries(
         op
